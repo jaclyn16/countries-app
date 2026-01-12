@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background: #fafafa;
+    color: #111111;
+    font-family: sans-serif;
+}
+
+.app-header {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
+    position: relative;
+    z-index: 10;
+}
+
+.app-title {
+    color: #111111;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.app-link {
+    color: #111111;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.page {
+    padding: 2.5rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.country-card {
+    background: #ffffff;
+    /* width: 225px; */
+    /* margin: 20px; */
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
+}
+
+.country-flag {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 1.25rem;
+}
+
+.country-name {
+    margin: 0;
+    margin-bottom: 0.75rem;
+font-size: 1rem;
+font-weight: 800;
+}
+
+.country-card p {
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+
+}
+
+.country-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+
+@media (max-width: 600px) {
+    .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        justify-items: center;
+    }
+    .country-card-link {
+        display: block;
+        width: min(320px, 100%);
+    }
+    .country-card {
+        width: 100%;
+    }
+}
+
