@@ -20,6 +20,7 @@ function SavedCountries() {
     // the e.prevent stops page from refreshing
     function handleSubmit(e) {
         e.preventDefault();
+        console.log("Submitted Profile Info..", formData);
 // this just resets the form after was submitted
         setFormData({
             fullName: "",
