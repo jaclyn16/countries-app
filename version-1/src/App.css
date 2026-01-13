@@ -81,6 +81,125 @@ font-weight: 800;
     display: block;
 }
 
+.saved-layout {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.profile-card {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 6px;
+    padding: 0;
+}
+
+.section-title {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.profile-form {
+    width: 360px;
+    max-width: 100%;
+}
+
+/* .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+} */
+
+.profile-form input,
+.profile-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    /* font-size: 0.95rem; */
+    font-family: inherit;
+    background: #ffffff;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.12);
+    outline: none;
+}
+
+.profile-form textarea {
+    min-height: 140px;
+    resize: none;
+}
+
+.page-title {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    margin-bottom: 18px;
+}
+
+.submit-btn {
+    background-color: #7773d1;
+    color: #ffffff;
+    width: fit-content;
+    padding: 0.5rem 1.1rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.details-layout {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.detail-flag {
+width: 520px;
+border-radius: 6px;
+display: block;
+}
+
+.details-info {
+    max-width: 420px;
+}
+
+.details-title {
+    margin: 0 0 0.75rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.save-btn {
+    margin-bottom: 1.25rem;
+    min-width: 100px;
+    padding: 0.35rem 1rem;
+    border: 1px solid #bdbdbd;
+    background: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
+}
+
+.details-text {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+}
+
+.back-btn {
+    margin-bottom: 2.5rem;
+    min-width: 100px;
+    padding: 0.45rem 1.25rem;
+    border: 1px solid #bdbdbd;
+    background: #ffffff;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
+}
+
 
 
 @media (max-width: 600px) {
@@ -99,3 +218,17 @@ font-weight: 800;
     }
 }
 
+@media (max-width: 600px) {
+    .saved-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .details-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+    .detail-flag {
+        width: 100%;
+    }
+}
