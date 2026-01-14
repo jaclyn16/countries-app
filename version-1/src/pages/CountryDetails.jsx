@@ -9,14 +9,11 @@ function CountryDetails({ countriesData }) {
     const { id } = useParams();
     const navigate = useNavigate(); 
 // line 10 creates navigate function inside component to change pages...
-    const country = countriesData.find(
-        (c) => c.cca3 === id || c.name.common === id
-    );
-// if/else statement....if we couldn't find the country no data found,show a message
-    if (!country) {
-        return <p>Country not found.</p>
-    }
-// if we DID find it, it will show these details....
+    const country = countriesData.find((country) => {
+        return country.name.common === id;
+    });
+
+
     return (
         <main className="page">
             <button className="back-btn" type="button" onClick={() => navigate(-1)}>Back</button>

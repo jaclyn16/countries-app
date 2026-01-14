@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // the const creates id for url..and if doesnt exist, use use country name..
 // the return= what shows on the screen
 function CountryCard({ country }) {
-    const id = country.cca3 || country.name.common;
+    const id = country.name.common;
     return (
         // this link when you click on card=it goes to details/id
         <Link to={`/details/${id}`} className="country-card-link"> 
