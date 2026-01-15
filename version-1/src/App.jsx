@@ -1,18 +1,25 @@
-// line 4 is importing we need from the react-router...the routes/route lets us switch
-// pages.. and link lets us click to navigate without reloading page..
-// lines 5-8 are the page componeents and css styling on line 8
+// the import useEffect/useState are react hooks that let us use them and run the code
+// when the component loads... 
+// the import routes, route, link are routing tools from react-router-dom, the 
+// routes and route let us switch pages and link lets us navigate without refreshing page..
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+// these are the imports for the page components..and the global css styling for the app
 import Home from "./pages/Home.jsx";
 import SavedCountries from "./pages/SavedCountries.jsx";
 import CountryDetails from "./pages/CountryDetails.jsx";
 import "./App.css";
 
-// this imports the country data from the local js file
+// this imports the country data from the local js file as a backup if main
+// api fails!!...
 import localData from "../localData.js";
 
-// this is the main app component..the return is what shows back on screen.. link to home page
-// link to saved countries page..
+// this is the main app component..
+// creates state to store the list of countries, and countriesData starts as an empty array.
+// the const getCountries is an async function to fetch the country data from an api..
+// the const response is a request to the rest countries api..
+// const data converts the respone into JSON data, the setCountriesData saves it into state
+// the catch error is if the fetch fails,log it.. and then use the local backup data instead
 function App() {
   const [countriesData, setCountriesData] = useState([]);
   const getCountriesData = async () => {
@@ -30,7 +37,10 @@ function App() {
   useEffect(() => {
     getCountriesData();
   }, []);
+  // on line 37.. the useEffect runs once when the app component loads
 
+  // this return is the JSX that renders everything on the screen..
+  // header that appears on every page..lin that goes to home page and the saved countries
   return (
     <div className="app">
       <header className="app-header">
@@ -49,5 +59,8 @@ function App() {
     </div>
   );
 }
+// on line 57...this is the country details page that shows with the url..
+// the :id is a route parameter from the url
+
 // export allows other files to use app...
 export default App;
