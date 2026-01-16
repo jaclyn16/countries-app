@@ -15,7 +15,7 @@ import "./App.css";
 import localData from "../localData.js";
 
 // this is the main app component..
-// creates state to store the list of countries, and countriesData starts as an empty array.
+// creates state variable to store the list of countries, and countriesData starts as an empty array.
 // the const getCountries is an async function to fetch the country data from an api..
 // the const response is a request to the rest countries api..
 // const data converts the respone into JSON data, the setCountriesData saves it into state
