@@ -200,6 +200,21 @@ display: block;
     box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
 }
 
+.countries-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.country-card {
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
+}
+
 
 
 @media (max-width: 600px) {
