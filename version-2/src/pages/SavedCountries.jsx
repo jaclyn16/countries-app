@@ -1,6 +1,7 @@
-// useState lets us st6ore and update the form input values
+// react hooks...useState lets us store and update the form input values
 import { useEffect, useState } from "react";
-// this is a component the renders the saved countries page..
+
+// a component the renders the saved countries page..the newest user..a profile form
 // the const formData stores all the the input values into 1 object..
 // each key "" matches the inputs name attribute...
 function SavedCountries({ countriesData }) {
@@ -10,6 +11,7 @@ function SavedCountries({ countriesData }) {
         country: "",
         bio: "",
     });
+    // api data state..stores newest user data and saved countries from backend..
     const [newestUserData, setNewestUserData] = useState(null);
     const [savedCountries, setSavedCountries] = useState([]);
     // this function runs everytime the user types in the input..
@@ -18,6 +20,9 @@ function SavedCountries({ countriesData }) {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     }
+    // fetches saved contries..
+    // the const data converts response to java script data..
+    // the setSavedCountries...saves data to state..
     const getSavedCountriesData = async () => {
         try {
             const response = await fetch(
@@ -32,10 +37,11 @@ function SavedCountries({ countriesData }) {
             console.log(error);
             }
     };
+    // runs once when page loads
      useEffect(() => {
     getSavedCountriesData();
   }, []);
-    
+    // fetches newest user..
     const getNewestUserData = async () => {
         try {
             const response = await fetch(
@@ -44,8 +50,10 @@ function SavedCountries({ countriesData }) {
                     method: "GET",
                 }
             );
+            // api returns an array, so grabs the 1st object..
             const data = await response.json();
             const userData = data[0];
+            // save newest user to state
             setNewestUserData(userData);
         } catch (error) {
             console.log(error);
@@ -54,14 +62,15 @@ function SavedCountries({ countriesData }) {
      useEffect(() => {
     getNewestUserData();
      }, []);
-    
+    // match saved countries to full country data..savedCountries has country name..countriesData has full country info
+    // .map loops over saved countries... .find finds the matching full country object
     const matchedSavedCountries = savedCountries.map((item) => {
         return countriesData.find(
             (country) => country.name?.common === item.country_name
         );
     })
         
-    // this function runs when the form is submitted...
+    // handles form submit..function runs when the form is submitted...
     // the e.prevent stops page from refreshing
     function handleSubmit(e) {
         e.preventDefault();

@@ -116,39 +116,50 @@ REQUEST BODY (if applicable): -----
 RESPONSE DATA TYPE: --string...success message----
 RESPONSE: --Success! The country is saved.----
 
-❓ WHEN: ------
+❓ WHEN: --when the user clicks the Save Country button... an onClick event----
 
-❓ WHERE: ------
+❓ WHERE: ---in the CountryCard component...inside the save buttons click handler function---
 
 ❓ HOW:
-Step 1: ------
-Step 2: ------
-Step 3: ------
-Add more steps as needed!
+Step 1: --user clicks the Save country button on a country card----
+Step 2: --the click will trigger a function----
+Step 3: --that function creates a javascript object---
+Step 4: --send a post request using fetch()--
+Step 5: --show back to user--
 
 ========================
 🔶 RETRIEVING SAVED COUNTRIES DATA
 ========================
 
 ❓ WHAT...
-TYPE OF HTTP REQUEST (GET OR POST): ------
-API ENDPOINT: ------
+TYPE OF HTTP REQUEST (GET OR POST): --GET----
+API ENDPOINT: --/get-all-saved-countries
 
 REQUEST BODY DATA TYPE (if applicable): ------
 REQUEST BODY (if applicable): ------
 
-RESPONSE DATA TYPE: ------
-RESPONSE: ------
+RESPONSE DATA TYPE: --array----
+RESPONSE: --
+[
+  {
+    "country_name": "Japan"
+  },
+  {
+    "country_name": "Germany"
+  }
+]
 
-❓ WHEN: ------
+❓ WHEN: --when the savedCountries page loads----
 
-❓ WHERE: ------
+❓ WHERE: --inside the savedCountries component----
 
 ❓ HOW:
-Step 1: ------
-Step 2: ------
-Step 3: ------
-Add more steps as needed!
+Step 1: --the savedCountries component loads----
+Step 2: --the useEffect runs one time when the component loads----
+Step 3: ---send a GET request using fetch---
+Step 4: --convert response to JSON--
+Step 5: --store the returned array in state using useState--
+Step 6: --Loop over the array and display each saved country in the UI--
 
 =================================
 📊 COUNTRY COUNTS DATA
@@ -160,21 +171,30 @@ Add more steps as needed!
 NOTE: We combine storing & retrieving country counts data into one section because they always happen together. Each time we look up a country’s view count, we also need to increase it and save the new total.
 
 ❓ WHAT...
-TYPE OF HTTP REQUEST (GET OR POST): ------
-API ENDPOINT: ------
+TYPE OF HTTP REQUEST (GET OR POST): -POST-----
+API ENDPOINT: ---/update-one-country-count---
 
-REQUEST BODY DATA TYPE (if applicable): ------
+REQUEST BODY DATA TYPE (if applicable): ---object---
 REQUEST BODY (if applicable): ------
+{
+  "country_name": "France"
+}
 
-RESPONSE DATA TYPE: ------
+RESPONSE DATA TYPE: --object----
 RESPONSE: ------
+{
+  "count": 3
+}
 
-❓ WHEN: ------
+❓ WHEN: --when a user clicks a country----
 
-❓ WHERE: ------
+❓ WHERE: -inside the countryCard component or the click handler function-----
 
 ❓ HOW:
-Step 1: ------
-Step 2: ------
-Step 3: ------
+Step 1: --user clicks on a country card----
+Step 2: -a function runs that sends a post request to update the count-----
+Step 3: ---request body includes the selected country name as JSON---
+Step 4: --the backend updates the country count..
+Step 5: --the backend sends back the new count--
+Step 6: --the frontend stores the count in state and displays it back--
 Add more steps as needed!
