@@ -82,10 +82,12 @@ function SavedCountries({ countriesData }) {
                 {matchedSavedCountries.map((country) => (
                     <div className="country-card" key={country.cca3}>
                         <img className="country-flag" src={country.flags.png} alt={`Flag of ${country.name.common}`} />
+                       <div className="card-content"> 
                         <h3>{country.name.common}</h3>
                         <p>Population: {country.population}</p>
                         <p>Region: {country.region}</p>
                         <p>Capital: {country.capital?.[0]}</p>
+                        </div>
                     </div>
                 ))}
             </section>
