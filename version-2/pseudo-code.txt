@@ -55,8 +55,9 @@ RESPONSE: --Success! User has been added.----
 
 ❓ HOW:
 Step 1: -create state to store form values...name,country,email,bio-----
-Step 2: -update state as user types..use onChange events in inputs-----
-Step 3: ---when form submitted prevent page refresh,gather all values into one object---
+Step 2: put a post request---
+Step 3:-update state as user types..use onChange events in inputs-----
+Step 4: ---when form submitted prevent page refresh,gather all values into one object---
 Add more steps as needed!
 
 ========================

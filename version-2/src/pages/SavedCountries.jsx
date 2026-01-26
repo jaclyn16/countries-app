@@ -69,20 +69,41 @@ function SavedCountries({ countriesData }) {
             (country) => country.name?.common === item.country_name
         );
     })
+
+    const storeUserData = async (data) => {
+        const response = await fetch(
+            'https://backend-answer-keys.onrender.com/add-one-user',
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: data.fullName,
+                    country_name: data.country,
+                    email: data.email,
+                    bio: data.bio,
+                }),
+            }
+        );
+        const result = await response.text();
+        console.log("POST result:", result);
+    };
         
     // handles form submit..function runs when the form is submitted...
     // the e.prevent stops page from refreshing
-    function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Submitted Profile Info..", formData);
-// this just resets the form after was submitted
+        await storeUserData(formData);
+        // this just resets the form after was submitted
         setFormData({
             fullName: "",
             email: "",
             country: "",
             bio: "",
         });
-    }
+    };
     // this is the jsx that returns what to be displayed on page..
     return (
         <main className="page">
