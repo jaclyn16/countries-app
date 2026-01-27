@@ -91,7 +91,7 @@ RESPONSE: ------
 ❓ HOW:
 Step 1: --fill form out and submits it----
 Step 2: --make a function/async to get user data to sent a get request to end point
------/get-newest-user to a state variable 
+--/get-newest-user to a state variable.. 
 Step 3: --will use useeffect to call userdata on page load----
 4- render the newest users name to the screen in jsx
 Add more steps as needed!
