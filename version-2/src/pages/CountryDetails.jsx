@@ -13,7 +13,26 @@ function CountryDetails({ countriesData }) {
         return country.name.common === id;
     });
 
-
+    const storeSavedCountryData = async (countryObj) => {
+        const response = await fetch(
+            "/api/save-one-country",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    country_name: countryObj.name.common,
+                }),
+            }
+        );
+        const result = await response.text();
+        console.log(result);
+    };
+    const handleSaveCountry = () => {
+        storeSavedCountryData(country);
+    };
+    
     return (
         <main className="page">
             <button className="back-btn" type="button" onClick={() => navigate(-1)}>Back</button>
@@ -21,7 +40,7 @@ function CountryDetails({ countriesData }) {
             <img className="detail-flag" src={country.flags.png} alt={`Flag of ${country.name.common}`} />
            <div className="details-info"> 
                     <h2 className="details-title">{country.name.common}</h2>
-           <button className="save-btn" type="button">Save</button>
+           <button className="save-btn" type="button" onClick={handleSaveCountry}>Save</button>
            
             <p className="details-text">Population: {country.population}</p>
             <p className="details-text">Region: {country.region}</p>

@@ -26,7 +26,7 @@ function SavedCountries({ countriesData }) {
     const getSavedCountriesData = async () => {
         try {
             const response = await fetch(
-                "https://backend-answer-keys.onrender.com/get-all-saved-countries",
+                "/api/get-all-saved-countries",
                 {
                     method: "GET",
                 }
@@ -45,7 +45,7 @@ function SavedCountries({ countriesData }) {
     const getNewestUserData = async () => {
         try {
             const response = await fetch(
-                'https://backend-answer-keys.onrender.com/get-newest-user',
+                '/api/get-newest-user',
                 {
                     method: "GET",
                 }
@@ -72,7 +72,7 @@ function SavedCountries({ countriesData }) {
 
     const storeUserData = async (data) => {
         const response = await fetch(
-            'https://backend-answer-keys.onrender.com/add-one-user',
+            '/api/add-one-user',
             {
                 method: "POST",
                 headers: {
@@ -89,7 +89,26 @@ function SavedCountries({ countriesData }) {
         const result = await response.text();
         console.log("POST result:", result);
     };
-        
+
+    const saveCountryData = async (countryName) => {
+        const response = await fetch(
+            "/api/save-one-country",
+            {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    country_name: countryName,
+                }),
+            }
+        );
+        const result = await response.text();
+        console.log("Saved country result:", result);
+    };
+    const handleSaveCountry = (countryName) => {
+        saveCountryData(countryName);
+    };
     // handles form submit..function runs when the form is submitted...
     // the e.prevent stops page from refreshing
     const handleSubmit = async (e) => {
