@@ -69,15 +69,19 @@ function SavedCountries({ countriesData }) {
             (country) => country.name?.common === item.country_name
         );
     })
-
+// sends user form data to the backend so can be saved..= when the form is filled out & clicks submit,,
     const storeUserData = async (data) => {
+        // POST...sends data to the server to add one user...
         const response = await fetch(
             '/api/add-one-user',
             {
                 method: "POST",
+                // tells backend we're sending JSON
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                // body must be a string for fetch cause api's dont understand JS objects..need json
+                // form is submitted, takes users input & converts into JSON so backend can store it.
                 body: JSON.stringify({
                     name: data.fullName,
                     country_name: data.country,
@@ -86,11 +90,13 @@ function SavedCountries({ countriesData }) {
                 }),
             }
         );
+        // this is backend return message.."success user added"
         const result = await response.text();
         console.log("POST result:", result);
     };
-
+// POST request to save one country..to the backend database
     const saveCountryData = async (countryName) => {
+        // sending a country_name to be stored in database
         const response = await fetch(
             "/api/save-one-country",
             {
@@ -98,14 +104,17 @@ function SavedCountries({ countriesData }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                // only sending the country_name for saving
                 body: JSON.stringify({
                     country_name: countryName,
                 }),
             }
         );
+        // backend return message..."success country has been saved"
         const result = await response.text();
         console.log("Saved country result:", result);
     };
+    // wrapper function..to call from jsx onClick..
     const handleSaveCountry = (countryName) => {
         saveCountryData(countryName);
     };
@@ -114,6 +123,10 @@ function SavedCountries({ countriesData }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Submitted Profile Info..", formData);
+        // this instantly updates welcome message 
+        setNewestUserData({
+            name: formData.fullName,
+        });
         await storeUserData(formData);
         // this just resets the form after was submitted
         setFormData({

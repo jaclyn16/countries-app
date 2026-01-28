@@ -207,6 +207,18 @@ display: block;
     margin-top: 20px;
 }
 
+.submit-btn:hover,
+.save-btn:hover,
+.back-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
+}
+
+.save-btn:hover,
+.back-btn:hover {
+    background-color: #7773d1;
+    color: white;
+}
 
 @media (max-width: 600px) {
     .cards-grid {
