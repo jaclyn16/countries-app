@@ -42,7 +42,7 @@ function CountryDetails({ countriesData }) {
         );
         // returns JSON...a number
         const result = await response.json();
-        console.log("view count:", result.count);
+        console.log("count:", result.count);
         setViewCount(result.count);
         // setView...saves count in state so can render on the page..
     };
