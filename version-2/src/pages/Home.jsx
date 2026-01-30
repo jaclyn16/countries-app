@@ -18,5 +18,5 @@ function Home({ countriesData }) {
         </main>
     );
 }
-// export so app.jsx can use this page
+// export so app.jsx can use this page..
 export default Home;
