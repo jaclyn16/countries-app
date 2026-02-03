@@ -114,10 +114,7 @@ function SavedCountries({ countriesData }) {
         const result = await response.text();
         console.log("Saved country result:", result);
     };
-    // wrapper function..to call from jsx onClick..
-    const handleSaveCountry = (countryName) => {
-        saveCountryData(countryName);
-    };
+   
     // handles form submit..function runs when the form is submitted...
     // the e.prevent stops page from refreshing
     const handleSubmit = async (e) => {
