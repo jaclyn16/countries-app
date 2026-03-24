@@ -1,0 +1,201 @@
+🧠 VERSION 2 PSEUDO-CODE WORKSHEET
+==================================
+
+This is our WHAT, WHEN, WHERE, HOW framework for working with data:
+
+1. WHAT data should we store & retrieve?
+   What kind of HTTP request do we need to send, and to what API endpoint?
+   If we are sending a POST request, what do we need to send in the request body, and what is the data type?
+   What would we get back in the response, and what is the data t ype?
+
+2. WHEN should we store & retrieve the data?
+   What event or user action is the trigger, such as clicking a button, submitting a form, or loading a page?
+
+3. WHERE does this happen in the code?
+   What component, page or function?
+
+4. HOW do we accomplish this?
+   What steps do we need to take?
+   Do we need to...
+   - make any GET or POST requests to an API endpoint?
+   - render anything in JSX?
+   - make any functions? If so, when would we call those functions?
+   - use any useState or useEffect hooks?
+     Remember: This is pseudo-code. Don't write code yet — just outline the actions in plain language.
+
+✨ YOUR TASK: Fill in the answers to each WHAT/WHEN/WHERE/HOW question below for the 3 pieces of data.
+
+==================================
+📊 FORM DATA
+==================================
+
+========================
+🔶 STORING FORM DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): ---post---
+API ENDPOINT: --/add-one-user----
+
+REQUEST BODY DATA TYPE (if applicable): ---JSON-object--
+REQUEST BODY (if applicable): ----
+{
+  "name": "Alice",
+  "country_name": "Germany",
+  "email": "alice@example.com",
+  "bio": "A little about Alice"
+}--
+
+RESPONSE DATA TYPE: --string...success message----
+RESPONSE: --Success! User has been added.----
+
+❓ WHEN: ---when user submits the form---
+
+❓ WHERE: ---inside form component...ex..Savedcountries.jsx submit handler function--
+
+❓ HOW:
+Step 1: -create state to store form values...name,country,email,bio-----
+Step 2: put a post request---
+Step 3:-update state as user types..use onChange events in inputs-----
+Step 4: ---when form submitted prevent page refresh,gather all values into one object---
+Add more steps as needed!
+
+========================
+🔶 RETRIEVING FORM DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): ---get---
+API ENDPOINT: --/get-newest-user----
+
+REQUEST BODY DATA TYPE (if applicable): --n/a----
+REQUEST BODY (if applicable): -n/a-----
+
+
+RESPONSE DATA TYPE: -array w/1 object-----
+RESPONSE: ------
+[
+  {
+    "user_id": 42,
+    "name": "John Smith",
+    "country_name": "Canada",
+    "email": "john@example.com",
+    "bio": "Another bio"
+  }
+]
+
+❓ WHEN: --the saved countries page loads----
+
+❓ WHERE: --saved countries page----
+
+❓ HOW:
+Step 1: --fill form out and submits it----
+Step 2: --make a function/async to get user data to sent a get request to end point
+--/get-newest-user to a state variable.. 
+Step 3: --will use useeffect to call userdata on page load----
+4- render the newest users name to the screen in jsx
+Add more steps as needed!
+
+===================================
+📊 SAVED COUNTRIES DATA
+===================================
+
+========================
+🔶 STORING SAVED COUNTRIES DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): ---post---
+API ENDPOINT: --/save-one-country----
+
+REQUEST BODY DATA TYPE (if applicable): --JSON/object----
+REQUEST BODY (if applicable): -----
+{
+  "country_name": "Brazil"
+}
+
+RESPONSE DATA TYPE: --string...success message----
+RESPONSE: --Success! The country is saved.----
+
+❓ WHEN: --when the user clicks the Save Country button... an onClick event----
+
+❓ WHERE: ---in the CountryCard component...inside the save buttons click handler function---
+
+❓ HOW:
+Step 1: --user clicks the Save country button on a country card----
+Step 2: --the click will trigger a function----
+Step 3: --that function creates a javascript object---
+Step 4: --send a post request using fetch()--
+Step 5: --show back to user--
+
+========================
+🔶 RETRIEVING SAVED COUNTRIES DATA
+========================
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): --GET----
+API ENDPOINT: --/get-all-saved-countries
+
+REQUEST BODY DATA TYPE (if applicable): ------
+REQUEST BODY (if applicable): ------
+
+RESPONSE DATA TYPE: --array----
+RESPONSE: --
+[
+  {
+    "country_name": "Japan"
+  },
+  {
+    "country_name": "Germany"
+  }
+]
+
+❓ WHEN: --when the savedCountries page loads----
+
+❓ WHERE: --inside the savedCountries component----
+
+❓ HOW:
+Step 1: --the savedCountries component loads----
+Step 2: --the useEffect runs one time when the component loads----
+Step 3: ---send a GET request using fetch---
+Step 4: --convert response to JSON--
+Step 5: --store the returned array in state using useState--
+Step 6: --Loop over the array and display each saved country in the UI--
+
+=================================
+📊 COUNTRY COUNTS DATA
+=================================
+
+========================
+🔶 STORING & RETRIEVING COUNTRY COUNTS DATA
+========================
+NOTE: We combine storing & retrieving country counts data into one section because they always happen together. Each time we look up a country’s view count, we also need to increase it and save the new total.
+
+❓ WHAT...
+TYPE OF HTTP REQUEST (GET OR POST): -POST-----
+API ENDPOINT: ---/update-one-country-count---
+
+REQUEST BODY DATA TYPE (if applicable): ---object---
+REQUEST BODY (if applicable): ------
+{
+  "country_name": "France"
+}
+
+RESPONSE DATA TYPE: --object----
+RESPONSE: ------
+{
+  "count": 3
+}
+
+❓ WHEN: --when a user clicks a country----
+
+❓ WHERE: -inside the countryCard component or the click handler function-----
+
+❓ HOW:
+Step 1: --user clicks on a country card----
+Step 2: -a function runs that sends a post request to update the count-----
+Step 3: ---request body includes the selected country name as JSON---
+Step 4: --the backend updates the country count..
+Step 5: --the backend sends back the new count--
+Step 6: --the frontend stores the count in state and displays it back--
+Add more steps as needed!
