@@ -1,10 +1,11 @@
 // react hooks...useState lets us store and update the form input values
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 // a component the renders the saved countries page..the newest user..a profile form
 // the const formData stores all the the input values into 1 object..
 // each key "" matches the inputs name attribute...
 function SavedCountries({ countriesData }) {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
@@ -139,7 +140,7 @@ function SavedCountries({ countriesData }) {
             <h2 className="page-title">My Saved Countries</h2>
             <section className="countries-section">
                 {matchedSavedCountries.map((country) => (
-                    <div className="country-card" key={country.cca3}>
+                    <div className="country-card" key={country.cca3} onClick={() => navigate(`/details/${country.name.common}`)}>
                         <img className="country-flag" src={country.flags.png} alt={`Flag of ${country.name.common}`} />
                        <div className="card-content"> 
                         <h3>{country.name.common}</h3>

@@ -49,6 +49,12 @@ body {
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 4px 5px rgba(57, 56, 56, 0.597);
+    cursor: pointer;
+}
+
+.country-card:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
 }
 
 .country-flag {
