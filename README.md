@@ -13,15 +13,7 @@ Here's the link to view the live app: https://countries-version-4.netlify.app/
 
 ## 🖼️ Screenshots
 
-Here is where you'll include a screenshot of your project to show it off! 
 
-Instructions to include a screenshot into your README file: 
-
-1. Use `Command + Control + Shift + 4` to take a screenshot of your site and copy the screenshot to your clipboard 
-2. Find your Github `README.md` file on the Github website
-3. Edit the site by clicking on the Pencil icon on the top right of the page ✏️
-4. Move your cursor to the position where you want to paste the screenshot, then paste it. Github will convert the pasted screenshot into an `<img>` tag
-5. Select "Commit changes..." to save your changes 
 
 ## ✨ Features
 
