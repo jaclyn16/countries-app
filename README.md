@@ -42,7 +42,7 @@ This is what you can do on the app:
 **Database**
 
 - **Languages:** PostgreSQL (Neon)
-- **Deployment:** 
+- **Deployment:** Neon
 
 ## 🔹 API Documentation
 
