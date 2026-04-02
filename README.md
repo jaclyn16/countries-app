@@ -12,6 +12,13 @@
 Here's the link to view the live app: https://countries-version-4.netlify.app/
 
 ## 🖼️ Screenshots
+<img width="1190" height="695" alt="Screenshot 2026-03-31 at 11 18 21 AM" src="https://github.com/user-attachments/assets/2af09cee-5e36-4d2c-9d16-36311e849740" />
+<img width="1211" height="681" alt="Screenshot 2026-03-31 at 11 21 53 AM" src="https://github.com/user-attachments/assets/a1071d15-6221-4f3a-8ba4-2690f6a910c8" />
+<img width="1205" height="725" alt="Screenshot 2026-03-31 at 11 23 22 AM" src="https://github.com/user-attachments/assets/0252d585-81ea-4a80-91c8-f4469dd269a7" />
+<img width="744" height="725" alt="Screenshot 2026-03-31 at 11 23 42 AM" src="https://github.com/user-attachments/assets/f516181a-d1c5-4a28-a7ba-ef6dfdc5956a" />
+
+
+
 
 
 
